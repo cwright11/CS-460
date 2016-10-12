@@ -1,0 +1,40 @@
+
+
+.centered {
+	text-align: center;
+}
+
+.row {
+	padding: 100px;
+}
+
+#navbar {
+	height: 400px;
+	background-color: #CCCCCC;
+}
+
+.th 
+{
+	text-align: center;
+	background-color: #CCCCCC;
+	border: solid;
+	border-color: #FFFFFF;
+}
+
+.day-plan {
+	list-style: none;
+	text-align: center;
+	font-size: 60%;
+}
+
+.weekend {
+	background-color: #df9fdf;
+	border: solid;
+	border-color: #ffffff;
+}
+
+.weekday {
+	background-color: #b3b3ff;
+	border: solid;
+	border-color: #ffffff;
+}
