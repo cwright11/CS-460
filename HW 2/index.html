@@ -23,23 +23,94 @@
 </head>
 <body>
     <div class="container">
+      
+       <!-- Top Title -->
         <div class="row">
-            <div class="col-xs-12">Row Echelon Form Reducer</div>
+            <div class="col-xs-12"><h1 class="title">Row Echelon Form Reducer</h1></div>
         </div>
+        
+        <!-- Bar under title and space after bar -->
+        <hr><br>
+        
+        <!-- Drop Downs, Button, Matrix Input -->
         <div class="row">
             <div class="col-sm-6">
+              
+               <!-- Drop Downs, Button -->
                 <div class="row">
-                    <div class="col-xs-8">Drop Down</div>
-                    <div class="col-xs-4">Button</div>
+                  
+                   <!-- Drop Down - Matrix Size Inputs -->
+                    <div class="col-xs-6 dropdown">
+                        <select onchange="makeInputMatrix()" id="mIn">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <select onchange="makeInputMatrix()" id="nIn">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Start Button -->
+                    <div class="col-xs-6 button">
+                        <button onclick="test()" id="btn" class="button">Reduce</button>
+                    </div>
                 </div>
+                <br>
+                <!-- Matrix Input -->
                 <div class="row">
-                    <div class="col-xs-12">Input</div>
+                   <div class="col-xs-2"></div>
+                    <div id="matrixIn" class="col-xs-8"></div>
                 </div>
             </div>
+            
+            <!-- Row Reducitons Output -->
             <div class="col-sm-6">
-                <div class="col-sm-8">Output</div>
+                <div id="output" class="col-sm-8"></div>
             </div>
         </div>
     </div>
+    
+    <!-- JS+JQ Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        function test(){
+            $("#output").append("<b>Appended text</b>");
+        }
+        
+        function makeInputMatrix(){
+            
+            if(document.getElementById("table") != null){
+                var element = document.getElementById("table");
+                element.parentNode.removeChild(element);
+            }
+            
+            
+            var codeStr = '<table id="table"><tbody>';
+            var m = document.getElementById("mIn");
+            var m = m.options[m.selectedIndex].text;
+            var n = document.getElementById("nIn");
+            var n = n.options[n.selectedIndex].text;
+            for(i = 0; i<m; i++){
+                codeStr += "<tr>";
+                for(j = 0; j<n; j++){
+                    codeStr += '<td><input type="text" class="lhIn"></td>';
+                }
+                codeStr += '<td><input type="text" class="rhIn"></td></tr>';
+            }
+            codeStr += '</tbody></table>';
+            $("#matrixIn").append(codeStr);
+        }
+    </script>
 </body>
 </html>
+
+
+
+
